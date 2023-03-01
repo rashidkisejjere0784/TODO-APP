@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <h1>Updating Task {{name}}</h1>
+
+            <form class="w-50 p-100" action="/updateData" method="post">
+            <input type="number" style="display : none" value = {{id}} name = "id">
+                <div class="mb-3">
+                    <label for="">Task Name</label>
+                    <input required type="text" name="name" value="{{name}}" class="form-control">
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="">description</label>
+                    <input required type="text" name="desc" value="{{desc}}" class="form-control">
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="">date</label>
+                    <input required type="date" name="date" class="form-control">
+
+                </div>
+
+                <input type="submit"class="btn btn-primary" value="Update">
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

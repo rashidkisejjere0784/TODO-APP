@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card m-2 p-1000">
+            <h1>TODO app</h1>
+            <div>
+                <h2 style="margin-left : 20px !important">Tasks</h2>
+
+                <div class="m-10 align-items-center d-flex d-row">
+                    <div class="col">
+                        {{#if tasks}}
+                        <div class="list-group row">
+                            {{#each tasks}}
+                            <div class="" style="margin : 20px !important">
+                                <p class="col-sm">Name : {{this.name}}</p>
+                                <p class="col-sm">Date : {{this.date}}</p>
+                                <p class="col-sm">description : {{this.desc}}</p>
+                                <form class="col-sm d-inline-flex mb-12" action="/delete" method="post">
+                                    <button class="btn btn-primary" name = "id" value={{this.id}}>delete</button>
+                                </form>
+                                <form action="/update" method="post" class="d-inline-flex">
+                                    <button class="btn btn-primary" name = "id" value = {{this.id}}>update</button>
+                                </form>
+
+                                </form>
+                            </div>
+
+                            {{/each}}
+                        </div>
+                        {{else}}
+                        <p>No tasks to display</p>
+                        {{/if}}
+                    </div>
+                    <div class="col t-0">
+                        <h3>Create a New Task</h3>
+                        <form class="w-50 p-100" action="/add" method="post">
+                            <div class="mb-3">
+                                <label for="">Task Name</label>
+                                <input type="text" name="name" class="form-control">
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">description</label>
+                                <input type="text" name="desc" class="form-control">
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">date</label>
+                                <input type="date" name="date" class="form-control">
+
+                            </div>
+
+                            <input type="submit" class="btn btn-primary" value="Add">
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
